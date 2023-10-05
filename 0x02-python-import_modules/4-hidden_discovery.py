@@ -3,8 +3,8 @@ def main():
     import hidden_4
     content = dir(hidden_4)
     for each in content:
-        if name[:2] != "__":
-            print(name)
+        if each[:2] != "__":
+            print(each)
 
 
 if __name__ == "__main__":
