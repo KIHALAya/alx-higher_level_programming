@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 def best_score(a_dictionary):
     if a_dictionary:
+        keys = list(a_dictionary.keys())
         highest_value = 0
         best_student = ""
         for i in a_dictionary:
