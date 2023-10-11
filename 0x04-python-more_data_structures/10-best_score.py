@@ -8,5 +8,3 @@ def best_score(a_dictionary):
                 highest_value = a_dictionary[i]
                 best_student = i
         return(best_student)
-    else:
-        return (None)
