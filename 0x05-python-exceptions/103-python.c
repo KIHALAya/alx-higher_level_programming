@@ -1,6 +1,6 @@
 #include <stdio.h>
-#include "Python.h"
-#include "floatobject.h"
+#include <Python.h>
+#include <floatobject.h>
 
 /**
  * print_python_list - Prints basic info about a Python list.
@@ -46,7 +46,7 @@ void print_python_bytes(PyObject *p)
 
 	printf("[.] bytes object info\n");
 	printf("  size: %ld\n", size);
-	printf("  trying string: %s\n", PyBytes_AS_STRING(p));
+	printf("  trying string: %s\n", PyBytes_AsString(p));
 
 	printf("  first 10 bytes: ");
 	for (Py_ssize_t i = 0; i < 10 && i < size; i++)
