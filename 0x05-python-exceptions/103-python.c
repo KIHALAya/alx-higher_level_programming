@@ -1,6 +1,5 @@
 #include <stdio.h>
-#include "Python.h"
-#include "floatobject.h"
+#include <Python.h>
 
 /**
  * print_python_list - Prints basic info about a Python list.
