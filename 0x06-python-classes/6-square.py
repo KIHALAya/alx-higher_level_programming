@@ -2,6 +2,7 @@
 
 """The the Square class."""
 
+
 class Square:
     """Represents a square object."""
 
@@ -11,7 +12,7 @@ class Square:
 
         Args:
             size :integer, Size of the square.
-            position :tuple, A tuple of 2 positive integers representing the position.
+            position :tuple of 2 positive integers representing the position.
         """
         self.size = size
         self.position = position
@@ -47,7 +48,7 @@ class Square:
         return self.__size * self.__size
 
     def my_print(self):
-        """Print the square using the '#' character, taking the position into account."""
+        """Print the square using the '#' character"""
         if self.size == 0:
             print()
         else:
@@ -55,4 +56,3 @@ class Square:
                 print()
             for _ in range(self.size):
                 print(" " * self.position[0] + "#" * self.size)
-
