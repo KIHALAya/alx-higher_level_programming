@@ -1,0 +1,53 @@
+
+========================
+How to Use say_my_name
+========================
+
+This module defines the function `say_my_name(first_name, last_name="")` which prints the name based on provided first and last names.
+
+Overview
+========
+
+The `say_my_name()` function outputs the name based on the provided first and last names. If the last name is not provided, it only prints the first name.
+
+Usage
+=====
+
+To use the function:
+
+>>> say_my_name = __import__('say_my_name').say_my_name
+>>> say_my_name("John", "Doe")
+My name is John Doe
+
+If last name is not provided, only the first name is printed:
+
+>>> say_my_name("Alice")
+My name is Alice
+
+Handles both integer and floating-point names:
+
+>>> say_my_name(123)
+Traceback (most recent call last):
+...
+TypeError: first_name must be a string
+
+>>> say_my_name("Bob", 456)
+Traceback (most recent call last):
+...
+TypeError: last_name must be a string
+
+Invalid Inputs
+==============
+
+Raises a TypeError if first_name or last_name is not a string:
+
+>>> say_my_name(123)
+Traceback (most recent call last):
+...
+TypeError: first_name must be a string
+
+>>> say_my_name("Bob", 456)
+Traceback (most recent call last):
+...
+TypeError: last_name must be a string
+
