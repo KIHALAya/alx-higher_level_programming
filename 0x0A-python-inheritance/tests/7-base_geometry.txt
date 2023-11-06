@@ -1,0 +1,36 @@
+Checking for module docstring:
+     >>> m = __import__("7-base_geometry").__doc__
+     >>> len(m) > 1
+     True
+
+Checking for class docstring:
+     >>> c = __import__("7-base_geometry").BaseGeometry.__doc__
+     >>> len(c) > 1
+     True
+
+Checking for area method docstring:
+     >>> method_doc = __import__("7-base_geometry").BaseGeometry.area.__doc__
+     >>> len(method_doc) > 1
+     True
+
+Checking for integer_validator method docstring:
+     >>> method_doc = __import__("7-base_geometry").BaseGeometry.integer_validator.__doc__
+     >>> len(method_doc) > 1
+     True
+
+Checking integer_validator for value as integer:
+     >>> bg = __import__("7-base_geometry").BaseGeometry()
+     >>> bg.integer_validator("test", 5)
+
+Checking integer_validator for value not as an integer:
+     >>> bg.integer_validator("test", "string")
+     Traceback (most recent call last):
+     ...
+     TypeError: test must be an integer
+
+Checking integer_validator for value less than or equal to 0:
+     >>> bg.integer_validator("test", -5)
+     Traceback (most recent call last):
+     ...
+     ValueError: test must be greater than 0
+
