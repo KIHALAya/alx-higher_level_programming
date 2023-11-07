@@ -3,18 +3,17 @@
 101-stats - Script that reads stdin line by line and computes metrics.
 """
 
+import sys
+from collections import defaultdict
+
 
 def print_statistics(total_size, status_codes):
-    """ print accumulated mertircs """
+    """ Print accumulated metrics """
     print(f"File size: {total_size}")
     for code in sorted(status_codes.keys()):
         print(f"{code}: {status_codes[code]}")
 
-
 if __name__ == "__main__":
-    import sys
-    from collections import defaultdict
-
     total_size = 0
     status_codes = defaultdict(int)
     line_count = 0
@@ -34,6 +33,9 @@ if __name__ == "__main__":
                     print_statistics(total_size, status_codes)
             except (ValueError, IndexError):
                 pass
+
+            if line_count % 10 == 0:
+                print_statistics(total_size, status_codes)
 
     except KeyboardInterrupt:
         print_statistics(total_size, status_codes)
