@@ -2,17 +2,19 @@
 """
 101-stats - Script that reads stdin line by line and computes metrics.
 """
-import sys
-from collections import defaultdict
 
 
 def print_statistics(total_size, status_codes):
+    """ print accumulated mertircs """
     print(f"File size: {total_size}")
     for code in sorted(status_codes.keys()):
         print(f"{code}: {status_codes[code]}")
 
 
-def main():
+if __name__ == "__main__":
+    import sys
+    from collections import defaultdict
+
     total_size = 0
     status_codes = defaultdict(int)
     line_count = 0
