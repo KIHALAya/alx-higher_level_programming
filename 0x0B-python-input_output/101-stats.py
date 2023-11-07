@@ -2,7 +2,7 @@
 """Reads from standard input and computes metrics."""
 
 
-def print_stats(size, stats):
+def _stats(size, stats):
     """Print accumulated metrics.
 
     Args:
@@ -25,7 +25,7 @@ if __name__ == "__main__":
     try:
         for line in sys.stdin:
             if count == 10:
-                print_stats(size, stats)
+                _stats(size, stats)
                 count = 1
             else:
                 count += 1
@@ -46,8 +46,8 @@ if __name__ == "__main__":
             except IndexError:
                 pass
 
-        print_stats(size, stats)
+        _stats(size, stats)
 
     except KeyboardInterrupt:
-        print_stats(size, stats)
+        _stats(size, stats)
         raise
