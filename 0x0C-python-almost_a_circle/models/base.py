@@ -1,10 +1,11 @@
 #!/usr/bin/python3
 """ Base Module """
 import json
+import csv
 
 
 class Base:
-    """ Base class with class methods for handling JSON strings """
+    """ Base class with class methods for handling JSON and CSV strings """
 
     __nb_objects = 0
 
@@ -67,6 +68,27 @@ class Base:
                 json_string = file.read()
                 dicts = cls.from_json_string(json_string)
                 instances = [cls.create(**dictionary) for dictionary in dicts]
+                return instances
+        except FileNotFoundError:
+            return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """ Serializes list_objs to CSV file """
+        filename = cls.__name__ + ".csv"
+        with open(filename, "w", newline="") as file:
+            writer = csv.writer(file)
+            for obj in list_objs:
+                writer.writerow(obj.to_csv_row())
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """ Deserializes CSV file to a list of instances """
+        filename = cls.__name__ + ".csv"
+        try:
+            with open(filename, "r", newline="") as file:
+                reader = csv.reader(file)
+                instances = [cls.create(*row) for row in reader]
                 return instances
         except FileNotFoundError:
             return []

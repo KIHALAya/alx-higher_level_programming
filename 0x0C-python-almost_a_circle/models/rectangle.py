@@ -115,3 +115,7 @@ class Rectangle(Base):
         return "[Rectangle] ({}) {}/{} - {}/{}".format(
             self.id, self.__x, self.__y, self.__width, self.__height
         )
+
+    def to_csv_row(self):
+        """ Returns a CSV row representation of the Rectangle instance """
+        return [self.id, self.width, self.height, self.x, self.y]

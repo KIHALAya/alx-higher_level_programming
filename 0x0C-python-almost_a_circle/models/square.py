@@ -52,3 +52,7 @@ class Square(Rectangle):
         return "[Square] ({}) {}/{} - {}".format(
             self.id, self.x, self.y, self.size
         )
+
+    def to_csv_row(self):
+        """ Returns a CSV row representation of the Square instance """
+        return [self.id, self.size, self.x, self.y]
