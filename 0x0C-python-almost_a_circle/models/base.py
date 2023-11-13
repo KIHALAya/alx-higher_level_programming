@@ -1,25 +1,28 @@
 #!/usr/bin/python3
-""" Base - manage id attribute in all future classes
-and avoid duplicating the same code """
+""" Base Module """
+import json
 
 
 class Base:
-    """ The “base” of all other classes in this project
+    """ Base class with a static method to_json_string """
 
-    Attributes:
-       __nb_objects : number of objects of the class
-
-    """
     __nb_objects = 0
 
     def __init__(self, id=None):
-        """Initialize an instance.
+        """ Initializes a Base instance with an id
 
         Args:
-            id : the id of the instance.
+            id (int): id of the Base instance
         """
         if id is not None:
             self.id = id
         else:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
+
+    @staticmethod
+    def to_json_string(list_dictionaries):
+        """ Returns the JSON string representation of list_dictionaries """
+        if list_dictionaries is None or not list_dictionaries:
+            return "[]"
+        return json.dumps(list_dictionaries)
