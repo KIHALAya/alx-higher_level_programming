@@ -4,7 +4,7 @@ import json
 
 
 class Base:
-    """ Base class with a static method to_json_string """
+    """ Base class with class methods for saving instances to a file """
 
     __nb_objects = 0
 
@@ -26,3 +26,14 @@ class Base:
         if list_dictionaries is None or not list_dictionaries:
             return "[]"
         return json.dumps(list_dictionaries)
+
+    @classmethod
+    def save_to_file(cls, list_objs):
+        """ Writes the JSON string representation of list_objs to a file """
+        filename = cls.__name__ + ".json"
+        with open(filename, "w") as file:
+            if list_objs is None:
+                file.write("[]")
+            else:
+                dictionaries = [obj.to_dictionary() for obj in list_objs]
+                file.write(cls.to_json_string(dictionaries))
