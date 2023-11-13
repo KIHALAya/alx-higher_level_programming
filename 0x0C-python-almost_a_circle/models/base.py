@@ -4,7 +4,7 @@ import json
 
 
 class Base:
-    """ Base class with class methods for saving instances to a file """
+    """ Base class with static methods for handling JSON strings """
 
     __nb_objects = 0
 
@@ -37,3 +37,10 @@ class Base:
             else:
                 dictionaries = [obj.to_dictionary() for obj in list_objs]
                 file.write(cls.to_json_string(dictionaries))
+
+    @staticmethod
+    def from_json_string(json_string):
+        """ Returns the list of dictionaries represented by json_string """
+        if json_string is None or json_string == "":
+            return []
+        return json.loads(json_string)
