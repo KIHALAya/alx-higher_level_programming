@@ -4,7 +4,7 @@ import json
 
 
 class Base:
-    """ Base class with static methods for handling JSON strings """
+    """ Base class with class methods for handling JSON strings """
 
     __nb_objects = 0
 
@@ -44,3 +44,16 @@ class Base:
         if json_string is None or json_string == "":
             return []
         return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """ Returns an instance with all attributes already set """
+        if cls.__name__ == "Rectangle":
+            dummy_instance = cls(1, 1)
+        elif cls.__name__ == "Square":
+            dummy_instance = cls(1)
+        else:
+            raise ValueError("Unsupported class type")
+
+        dummy_instance.update(**dictionary)
+        return dummy_instance
