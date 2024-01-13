@@ -1,7 +1,4 @@
 #!/usr/bin/python3
-import MySQLdb
-import sys
-
 """
 0-select_states.py - Script that lists all states from
 the database hbtn_0e_0_usa.
@@ -20,6 +17,10 @@ Requirements:
     - Results displayed as they are in the example below
     - Code should not be executed when imported
 """
+
+import MySQLdb
+import sys
+
 
 if __name__ == "__main__":
 
