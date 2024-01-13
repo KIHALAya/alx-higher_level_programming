@@ -2,15 +2,23 @@
 import MySQLdb
 import sys
 
-""""
-0-select_states.py -  script that lists all states from
-the database hbtn_0e_0_usa:
-    -Take 3 arguments: mysql username, mysql password and database name
-    -Use the module MySQLdb (import MySQLdb)
-    -Connect to a MySQL server running on localhost at port 3306
-    -Results sorted in ascending order by states.id
-    -Results displayed as they are in the example below
-    -Code should not executed when imported
+"""
+0-select_states.py - Script that lists all states from
+the database hbtn_0e_0_usa.
+
+Usage: ./0-select_states.py <username> <password> <database>
+
+Arguments:
+    <username>: MySQL username
+    <password>: MySQL password
+    <database>: Database name
+
+Requirements:
+    - Your script should use the module MySQLdb (import MySQLdb)
+    - Connect to a MySQL server running on localhost at port 3306
+    - Results sorted in ascending order by states.id
+    - Results displayed as they are in the example below
+    - Code should not be executed when imported
 """
 
 if __name__ == "__main__":
