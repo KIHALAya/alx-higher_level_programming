@@ -33,7 +33,7 @@ if __name__ == "__main__":
         password=arguments[1],
         db=arguments[2]
     )
-    query = """SELECT cities.id, states.name, cities.name
+    query = """SELECT cities.id, cities.name, states.name
                FROM cities  JOIN states
                ON cities.state_id = states.id
                ORDER BY cities.id"""
