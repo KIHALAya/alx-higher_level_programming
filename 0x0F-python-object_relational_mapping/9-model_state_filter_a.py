@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+
 """
 9-model_state_filter_a.py - Script that lists all State objects
 that contain the letter 'a' from the database hbtn_0e_6_usa.
@@ -39,4 +40,4 @@ if __name__ == '__main__':
     for state in session.query(State).filter(State.name.like('%a%')).all():
         print("{}: {}".format(state.id, state.name))
 
-session.close()
+    session.close()
