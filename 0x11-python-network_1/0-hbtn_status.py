@@ -4,9 +4,10 @@
 
 
 if __name__ == "__main__":
-    from urllib.request import urlopen
+    import urllib.request
 
-    with urlopen("https://alx-intranet.hbtn.io/status") as response:
+    with urllib.request.urlopen(
+            "https://alx-intranet.hbtn.io/status") as response:
         content = response.read()
         print(
             """Body response:
