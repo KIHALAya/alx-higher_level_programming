@@ -10,6 +10,7 @@ if __name__ == "__main__":
     import sys
 
     args = sys.argv[1:]
+
     try:
         with urlopen(args[0]) as response:
             content = response.read().decode('utf-8')
